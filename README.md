@@ -19,10 +19,9 @@ DRF template configured for **VS Code Dev Container**
         rm -rf .git
 
 3. Generate your own secret key
-2. Configure environment variables at `.env/` folder
-4. Rename the `.code-workspace` file
-6. Run `docker compose up`
-7. Open VS Code and reopen in Dev Container
+4. Configure environment variables at `.env/` folder
+5. Rename Dev Container at `.devcontainer.json`
+6. Open VS Code and reopen in Dev Container
 
 ## Packages
 
