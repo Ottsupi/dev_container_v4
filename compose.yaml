@@ -1,0 +1,22 @@
+services:
+  database:
+    image: postgres:15
+    env_file:
+      - ./env/database.env
+    volumes:
+      - database_data:/var/lib/postgresql/data
+  backend:
+    depends_on:
+      - database
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile.local
+    ports:
+      - "8080:8080"
+    env_file:
+      - ./env/backend.env
+    volumes:
+      - .:/core
+
+volumes:
+  database_data: {}

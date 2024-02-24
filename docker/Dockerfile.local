@@ -1,0 +1,18 @@
+FROM python:3.10-slim
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+RUN pip install --upgrade pip
+
+RUN apt-get update && apt-get install -y git
+
+ENV APP_HOME /core
+WORKDIR ${APP_HOME}
+
+COPY ./requirements ./requirements
+RUN pip install --no-cache-dir -r ./requirements/local.txt
+
+COPY . .
+
+WORKDIR ${APP_HOME}/app
+CMD ["gunicorn", "-c", "../config/gunicorn.local.py", "app.wsgi:application", "--reload"]

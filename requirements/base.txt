@@ -1,0 +1,18 @@
+# Base
+django==4.2.*
+djangorestframework==3.14.*
+django-environ==0.11.*
+
+
+# Security
+argon2-cffi==23.1.*
+
+
+# Database
+psycopg[binary]==3.1.*
+
+
+# Server
+gunicorn==21.2.*
+whitenoise==6.5.*
+django-cors-headers==4.3.*
