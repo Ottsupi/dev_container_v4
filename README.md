@@ -1,4 +1,4 @@
-# Django API project template
+# DRF Container Template
 
 DRF template configured for **VS Code Dev Container**
 
