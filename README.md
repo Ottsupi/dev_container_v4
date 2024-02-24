@@ -23,12 +23,10 @@ DRF template configured for **VS Code Dev Container**
 5. Rename Dev Container at `.devcontainer.json`
 6. Open VS Code and reopen in Dev Container
 
-## Packages
+## Other Packages
 
-* django-model-utils
-* django-pghistory
 * django-cors-headers
-
-### For Local Development
-
 * django-debug-toolbar
+* django-environ
+* argon2-cffi
+* psycopg[binary]
