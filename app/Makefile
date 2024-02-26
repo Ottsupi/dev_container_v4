@@ -22,3 +22,6 @@ app:
 
 shell:
 	$(MANAGE) shell_plus
+
+urls:
+	$(MANAGE) show_urls
