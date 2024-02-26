@@ -2,7 +2,8 @@
 django==4.2.*
 djangorestframework==3.14.*
 django-environ==0.11.*
-
+django-extensions==3.2.*
+django-model-utils==4.4.*
 
 # Security
 argon2-cffi==23.1.*
@@ -16,3 +17,4 @@ psycopg[binary]==3.1.*
 gunicorn==21.2.*
 whitenoise==6.5.*
 django-cors-headers==4.3.*
+werkzeug==3.0.*
