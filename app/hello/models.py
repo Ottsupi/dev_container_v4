@@ -2,13 +2,10 @@ import uuid
 
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django_extensions.db.fields import ShortUUIDField
 
 
 class HelloMessages(models.Model):
-    uuid = models.UUIDField(
-        default=uuid.uuid4,
-        editable=False
-    )
 
     message = models.CharField(max_length=255)
 
