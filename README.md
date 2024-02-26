@@ -22,6 +22,15 @@ DRF template configured for **VS Code Dev Container**
 4. Configure environment variables at `.env/` folder
 5. Rename Dev Container at `.devcontainer.json`
 6. Open VS Code and reopen in Dev Container
+7. Migrate
+
+        make migrations
+        make migrate
+
+8. CD into app and run the server
+
+        cd app
+        make run
 
 ## Other Packages
 
