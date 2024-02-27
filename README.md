@@ -15,7 +15,7 @@ DRF template configured for **VS Code Dev Container**
 1. Create a folder
 2. Git clone and delete `.git` folder
 
-        git clone https://github.com/Ottsupi/dev_container_v3.git .
+        git clone https://github.com/Ottsupi/drf-container.git . ;\
         rm -rf .git
 
 3. Generate your own secret key
