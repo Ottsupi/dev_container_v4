@@ -55,7 +55,6 @@
 				// python
 				"ms-python.python",
 				"ms-python.vscode-pylance",
-				"ms-python.isort",
 				// django
 				"batisteo.vscode-django"
 			]
