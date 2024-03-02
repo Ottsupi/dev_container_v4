@@ -1,0 +1,16 @@
+{
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "always",
+    },
+    "editor.rulers": [
+      {"column":  80, "color": "#ffffff10"},  // Docstrings and comments
+      {"column": 120, "color": "#ffffff10"}
+    ],
+  },
+
+  // disables middle click paste for Linux
+  "editor.selectionClipboard": false
+}

@@ -1,0 +1,63 @@
+line-length = 120
+target-version = "py310"
+
+[lint]
+# Read more here https://beta.ruff.rs/docs/rules/
+# F - Pyflakes
+# W, E - pycodestyle
+# A - flake8-builtins
+# PLC, PLE, PLW - Pylint
+# I - isort
+# S - flake8-bandit
+# S - flake8-bugbear
+select = [
+    'F',            # pyflakes
+    'E', 'W',       # pycodestyle
+    'PLC',          # pylint
+    'I',            # isort
+    'N',            # pep8-naming
+    'D',            # pydocstyle
+    'PERF',         # perflint
+    'FURB',         # refurb
+    'RUF',          # ruff
+    'TRY',          # tryceratops
+    'ERA',          # eradicate
+    'S',            # flake8-bandit
+    'BLE',          # flake8-blind-except
+    'B',            # flake8-bugbear
+    'DJ',           # flake8-django
+    'T20',          # flake8-print
+    'Q',            # flake8-quotes
+    'RET',          # flake8-return
+    'SIM',          # flake8-simplify
+    'ARG',          # flake8-unused-arguments
+    'TD',           # flake8-todos
+    'FIX',          # flake8-fixme
+    'LOG',          # flake8-logging
+]
+ignore = [
+    'S101',         # Use of assert detected
+    "D100",         # ignore missing docs
+    "D101",
+    "D102",
+    "D103",
+    "D104",
+    "D105",
+    "D106",
+    "D107",
+    "D212",
+    "D400",
+    "D401",
+    "D415",
+    "E402",         # false positives for local imports
+    "TD003",
+]
+
+
+[format]
+quote-style = "single"
+
+[lint.flake8-quotes]
+docstring-quotes = "single"
+inline-quotes = "single"
+multiline-quotes = "single"

@@ -16,5 +16,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 * postgres database mounted to a named volume
-* django debug toolbar
+* django-debug-toolbar
 * django-cors-headers

@@ -24,12 +24,12 @@ DRF template configured for **VS Code Dev Container**
 6. Open VS Code and reopen in Dev Container
 7. Migrate
 
+        cd app
         make migrations
         make migrate
 
-8. CD into app and run the server
+8. Run the server inside `/app` directory
 
-        cd app
         make run
 
 ## Other Packages
