@@ -1,0 +1,18 @@
+{
+  "[python]": {
+    "diffEditor.ignoreTrimWhitespace": true,
+    // "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "always",
+    },
+  },
+
+  "editor.rulers": [
+    {"column":  80, "color": "#006eff17"},  // Docstrings and comments
+    {"column": 120, "color": "#ff27563a"}
+  ],
+
+  // disables middle click paste for Linux
+  "editor.selectionClipboard": false
+}
