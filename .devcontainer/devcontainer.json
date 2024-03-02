@@ -17,19 +17,14 @@
 	// The optional 'workspaceFolder' property is the path VS Code should open by default when
 	// connected. This is typically a file mount in .devcontainer/docker-compose.yml
 	"workspaceFolder": "/core",
-	"features": {
-		"ghcr.io/devcontainers/features/git:1": {
-			"ppa": true,
-			"version": "latest"
-		},
-		"ghcr.io/devcontainers-contrib/features/black:2": {},
-		"ghcr.io/devcontainers-contrib/features/flake8:2": {},
-		"ghcr.io/devcontainers-contrib/features/isort:2": {},
-		"ghcr.io/devcontainers-contrib/features/vulture:2": {}
-	},
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
+	"features": {
+		"ghcr.io/devcontainers/features/git:1": {},
+		"ghcr.io/jungaretti/features/make:1": {}
+		// "ghcr.io/devcontainers-contrib/features/ruff:1": {},
+		// "ghcr.io/devcontainers-contrib/features/isort:2": {}
+	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
@@ -41,7 +36,7 @@
 	// "shutdownAction": "none",
 
 	// Uncomment the next line to run commands after the container is created.
-	// "postCreateCommand": "gunicorn -c ../config/gunicorn.local.py app.wsgi:application --reload",
+	"postCreateCommand": "git config --global --add safe.directory /core",
 
 	// Configure tool-specific properties.
 	"customizations": {
@@ -49,10 +44,11 @@
 			"extensions": [
 				"davidanson.vscode-markdownlint",
 				"mrmlnc.vscode-duplicate",
-				"visualstudioexptteam.vscodeintellicode",
-				"visualstudioexptteam.intellicode-api-usage-examples",
-				"KevinRose.vsc-python-indent",
+        // formatting
 				"EditorConfig.EditorConfig",
+        "charliermarsh.ruff",
+				// visuals
+				"aaron-bond.better-comments",
 				// tools
 				"ms-azuretools.vscode-docker",
 				"ms-vscode.makefile-tools",
