@@ -1,6 +1,6 @@
 import environ
 
-from .base import *
+from .base import *  # noqa: F403
 
 # DEBUG is True for local development
 DEBUG = True
@@ -11,36 +11,41 @@ env = environ.Env()
 SECRET_KEY = env('SECRET_KEY')
 
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = [
+    '0.0.0.0',  # noqa: S104
+    'localhost',
+    '127.0.0.1',
+]
 CSRF_TRUSTED_ORIGINS = [
-    "http://localhost",
-    "http://0.0.0.0",
-    "http://127.0.0.1"
+    'http://localhost',
+    'http://0.0.0.0',
+    'http://127.0.0.1',
 ]
 
 
 CORS_ALLOWED_ORIGINS = [
-    "https://example.com",
-    "https://sub.example.com",
-    "http://localhost:8080",
-    "http://127.0.0.1:9000",
+    'https://example.com',
+    'https://sub.example.com',
+    'http://localhost:8080',
+    'http://127.0.0.1:9000',
 ]
 
 
-INSTALLED_APPS += [
+INSTALLED_APPS += [  # noqa: F405
     'debug_toolbar',
 ]
 
 
-MIDDLEWARE += [
+MIDDLEWARE += [  # noqa: F405
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 
 if DEBUG:
     import socket
+
     hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
-    INTERNAL_IPS = [ip[: ip.rfind(".")] + ".1" for ip in ips] + ["127.0.0.1", "10.0.2.2"]
+    INTERNAL_IPS = [ip[: ip.rfind('.')] + '.1' for ip in ips] + ['127.0.0.1', '10.0.2.2']
 
 
 DATABASES = {
@@ -59,11 +64,11 @@ DATABASES = {
 # https://whitenoise.readthedocs.io/en/latest/django.html
 
 STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # noqa: F405
 
 STORAGES = {
     # ...
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    'staticfiles': {
+        'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
     },
 }
