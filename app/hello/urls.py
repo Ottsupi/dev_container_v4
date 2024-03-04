@@ -12,7 +12,7 @@ urlpatterns = [
     path('django/', views.django_index),
     path('drf/', views.drf_index.as_view()),
     path('list/', views.HelloListView.as_view()),
-    path('<int:id>/detail/', views.HelloDetailsView.as_view(), name='hello-detail')
+    path('<int:id>/detail/', views.HelloDetailsView.as_view(), name='hello-detail'),
 ]
 
 urlpatterns += router.urls

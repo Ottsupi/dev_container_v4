@@ -8,7 +8,7 @@ from .models import HelloMessages
 class HelloMessagesSerializer(serializers.ModelSerializer):
     class Meta:
         model = HelloMessages
-        fields = ['message', 'carrier', 'date_created', 'last_modified']
+        fields = ('message', 'carrier', 'date_created', 'last_modified')
 
 
 class HelloReadSerializer(serializers.ModelSerializer):
@@ -16,20 +16,20 @@ class HelloReadSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = HelloMessages
-        fields = ['message', 'carrier', 'date_created', 'last_modified', 'url']
+        fields = ('message', 'carrier', 'date_created', 'last_modified', 'url')
 
     def get_url(self, obj):
         request = self.context.get('request')
         return reverse('hello-detail', kwargs={'id': obj.id}, request=request)
 
-    def to_representation(self, instance):
+    def to_representation(self, instance: HelloMessages):
         data = super().to_representation(instance)
 
         # Convert UTC to Japan time
-        TOKYO = pytz.timezone('Asia/Tokyo')
-        FORMAT = '%Y-%m-%d %H:%M:%S %Z'
-        data['date_created'] = instance.date_created.astimezone(TOKYO).strftime(FORMAT)
-        data['last_modified'] = instance.last_modified.astimezone(TOKYO).strftime(FORMAT)
+        tokyo = pytz.timezone('Asia/Tokyo')
+        display_format = '%Y-%m-%d %H:%M:%S %Z'
+        data['date_created'] = instance.date_created.astimezone(tokyo).strftime(display_format)
+        data['last_modified'] = instance.last_modified.astimezone(tokyo).strftime(display_format)
 
         # Display human-readable name
         data['carrier'] = instance.get_carrier_display()
@@ -40,10 +40,10 @@ class HelloReadSerializer(serializers.ModelSerializer):
 class HelloWriteSerializer(serializers.ModelSerializer):
     class Meta:
         model = HelloMessages
-        fields = ['message', 'carrier']
+        fields = ('message', 'carrier')
 
 
 class HelloReadViewSetSerializer(HelloReadSerializer):
-    def get_url(self, obj):
+    def get_url(self, obj: HelloMessages):
         request = self.context.get('request')
         return reverse('hellomessages-detail', kwargs={'id': obj.id}, request=request)
