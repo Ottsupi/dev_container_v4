@@ -7,13 +7,15 @@ from .models import HelloMessages
 from .serializers import HelloReadSerializer, HelloReadViewSetSerializer, HelloWriteSerializer
 
 
-# Create your views here.
-def django_index():
+# Unused arguments should be assigned to underscore variables
+def django_index(request):
+    _ = request
     return HttpResponse('Hello, world!')
 
 
 class DRFIndex(APIView):
-    def get(self):
+    def get(self, request):
+        _ = request
         return Response({'message': 'Hello, World!'})
 
 
