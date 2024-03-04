@@ -12,13 +12,17 @@ class HelloMessagesSerializer(serializers.ModelSerializer):
 
 
 class HelloReadSerializer(serializers.ModelSerializer):
-    url = serializers.SerializerMethodField()
+    view_url = serializers.SerializerMethodField()
+    viewset_url = serializers.HyperlinkedIdentityField(
+        view_name='hellomessages-detail',
+        lookup_field='id',
+    )
 
     class Meta:
         model = HelloMessages
-        fields = ('message', 'carrier', 'date_created', 'last_modified', 'url')
+        fields = ('message', 'carrier', 'date_created', 'last_modified', 'view_url', 'viewset_url')
 
-    def get_url(self, obj):
+    def get_view_url(self, obj):
         request = self.context.get('request')
         return reverse('hello-detail', kwargs={'id': obj.id}, request=request)
 
@@ -41,9 +45,3 @@ class HelloWriteSerializer(serializers.ModelSerializer):
     class Meta:
         model = HelloMessages
         fields = ('message', 'carrier')
-
-
-class HelloReadViewSetSerializer(HelloReadSerializer):
-    def get_url(self, obj: HelloMessages):
-        request = self.context.get('request')
-        return reverse('hellomessages-detail', kwargs={'id': obj.id}, request=request)

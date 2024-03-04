@@ -14,7 +14,7 @@ extend-exclude = [
 select = [
     'F',            # pyflakes
     'E', 'W',       # pycodestyle
-    'PL',          # pylint
+    'PL',           # pylint
     'I',            # isort
     'N',            # pep8-naming
     'D',            # pydocstyle
@@ -78,9 +78,9 @@ unfixable = [
 quote-style = 'single'
 
 [lint.flake8-quotes]
-docstring-quotes = 'single'
+docstring-quotes = 'double'
+multiline-quotes = 'double'
 inline-quotes = 'single'
-multiline-quotes = 'single'
 
 # Allow unused variadic arguments like *args and **kwargs.
 [lint.flake8-unused-arguments]
