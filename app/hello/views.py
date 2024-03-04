@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from .models import HelloMessages
-from .serializers import HelloReadSerializer, HelloReadViewSetSerializer, HelloWriteSerializer
+from .serializers import HelloReadSerializer, HelloWriteSerializer
 
 
 # Unused arguments should be assigned to underscore variables
@@ -19,7 +19,11 @@ class DRFIndex(APIView):
         return Response({'message': 'Hello, World!'})
 
 
-class HelloListView(mixins.ListModelMixin, mixins.CreateModelMixin, generics.GenericAPIView):
+class HelloListView(
+    mixins.ListModelMixin,
+    mixins.CreateModelMixin,
+    generics.GenericAPIView,
+):
     queryset = HelloMessages.objects.all()
 
     def get_serializer_class(self):
@@ -35,7 +39,10 @@ class HelloListView(mixins.ListModelMixin, mixins.CreateModelMixin, generics.Gen
 
 
 class HelloDetailsView(
-    mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.DestroyModelMixin, generics.GenericAPIView
+    mixins.RetrieveModelMixin,
+    mixins.UpdateModelMixin,
+    mixins.DestroyModelMixin,
+    generics.GenericAPIView,
 ):
     queryset = HelloMessages.objects.all()
     lookup_field = 'id'
@@ -55,22 +62,29 @@ class HelloDetailsView(
         return self.destroy(request, *args, **kwargs)
 
 
-class HelloMessagesViewSet(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.CreateModelMixin):
+class HelloMessagesListViewSet(
+    mixins.ListModelMixin,
+    mixins.CreateModelMixin,
+    viewsets.GenericViewSet,
+):
     queryset = HelloMessages.objects.all()
 
     def get_serializer_class(self):
         if self.request.method == 'POST':
             return HelloWriteSerializer
-        return HelloReadViewSetSerializer
+        return HelloReadSerializer
 
 
 class HelloMessageDetailViewSet(
-    viewsets.GenericViewSet, mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.DestroyModelMixin
+    mixins.RetrieveModelMixin,
+    mixins.UpdateModelMixin,
+    mixins.DestroyModelMixin,
+    viewsets.GenericViewSet,
 ):
     queryset = HelloMessages.objects.all()
     lookup_field = 'id'
 
     def get_serializer_class(self):
-        if self.request.method in ('PUT', 'PATCH'):
+        if self.request.method == 'PUT':
             return HelloWriteSerializer
-        return HelloReadViewSetSerializer
+        return HelloReadSerializer
