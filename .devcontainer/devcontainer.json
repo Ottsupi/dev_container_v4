@@ -42,7 +42,9 @@
         "batisteo.vscode-django",
         // formatting
         "EditorConfig.EditorConfig",
+        // linting
         "charliermarsh.ruff",
+        "ms-python.pylint",
         // visuals
         "davidanson.vscode-markdownlint",
         "aaron-bond.better-comments"
