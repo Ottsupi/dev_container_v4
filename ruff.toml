@@ -82,3 +82,6 @@ docstring-quotes = 'single'
 inline-quotes = 'single'
 multiline-quotes = 'single'
 
+# Allow unused variadic arguments like *args and **kwargs.
+[lint.flake8-unused-arguments]
+ignore-variadic-names = true
