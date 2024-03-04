@@ -7,12 +7,12 @@ RUN pip install --upgrade pip
 ENV APP_HOME /core
 WORKDIR ${APP_HOME}
 
-COPY ./requirements ./requirements
-RUN pip install --no-cache-dir -r ./requirements/local.txt
+COPY ./app/requirements ./app/requirements
+RUN pip install --no-cache-dir -r ./app/requirements/local.txt
 
 # Skip this since volume is mounted in the compose file
 # COPY . .
 
 # Run gunicorn inside the /app directory
 WORKDIR ${APP_HOME}/app
-CMD ["gunicorn", "-c", "../config/gunicorn.local.py", "app.wsgi:application", "--reload"]
+CMD ["gunicorn", "-c", "./config/gunicorn.local.py", "app.wsgi:application", "--reload"]
