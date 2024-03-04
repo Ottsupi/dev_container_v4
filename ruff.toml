@@ -1,35 +1,49 @@
 line-length = 120
-target-version = "py310"
+target-version = 'py310'
+
+extend-exclude = [
+    'migrations/*',
+    'manage.py',
+    'wsgi.py',
+    'asgi.py'
+]
+
 
 [lint]
-# Read more here https://beta.ruff.rs/docs/rules/
-# F - Pyflakes
-# W, E - pycodestyle
-# A - flake8-builtins
-# PLC, PLE, PLW - Pylint
-# I - isort
-# S - flake8-bandit
-# S - flake8-bugbear
+# Read more here https://docs.astral.sh/ruff/rules/
 select = [
     'F',            # pyflakes
     'E', 'W',       # pycodestyle
-    'PLC',          # pylint
+    'PL',          # pylint
     'I',            # isort
     'N',            # pep8-naming
     'D',            # pydocstyle
+    'UP',           # pyupgrade
     'PERF',         # perflint
     'FURB',         # refurb
     'RUF',          # ruff
     'TRY',          # tryceratops
     'ERA',          # eradicate
+    'FLY',
     'S',            # flake8-bandit
     'BLE',          # flake8-blind-except
+    'FBT',          # flake8-boolean-trap
     'B',            # flake8-bugbear
+    'A',            # flake8-builtins
+    'C4',           # flake8-comprehensions
+    'DTZ',          # flake8-datetimez
     'DJ',           # flake8-django
+    'EM',           # flake8-errmsg
+    'ICN',          # flake8-import-conventions
+    'G',            # flake8-logging-format
+    'INP',          # flake8-no-pep420
+    'PIE',          # flake8-pie
     'T20',          # flake8-print
     'Q',            # flake8-quotes
     'RET',          # flake8-return
     'SIM',          # flake8-simplify
+    'TID',          # flake8-tidy-imports
+    'INT',          # flake8-gettext
     'ARG',          # flake8-unused-arguments
     'TD',           # flake8-todos
     'FIX',          # flake8-fixme
@@ -37,27 +51,37 @@ select = [
 ]
 ignore = [
     'S101',         # Use of assert detected
-    "D100",         # ignore missing docs
-    "D101",
-    "D102",
-    "D103",
-    "D104",
-    "D105",
-    "D106",
-    "D107",
-    "D212",
-    "D400",
-    "D401",
-    "D415",
-    "E402",         # false positives for local imports
-    "TD003",
+    'D100',         # ignore missing docs
+    'D101',
+    'D102',
+    'D103',
+    'D104',
+    'D105',
+    'D106',
+    'D107',
+    'D212',
+    'D400',
+    'D401',
+    'D415',
+    'E402',         # false positives for local imports
+    'TD003',
+]
+unfixable = [
+    'F401',         # unused imports
+    'C4',           # flake8-comprehensions
+    'PIE',          # flake8-pie
+    'TID',          # flake8-tidy-imports
 ]
 
 
 [format]
-quote-style = "single"
+quote-style = 'single'
 
 [lint.flake8-quotes]
-docstring-quotes = "single"
-inline-quotes = "single"
-multiline-quotes = "single"
+docstring-quotes = 'single'
+inline-quotes = 'single'
+multiline-quotes = 'single'
+
+# Allow unused variadic arguments like *args and **kwargs.
+[lint.flake8-unused-arguments]
+ignore-variadic-names = true
