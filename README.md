@@ -4,11 +4,19 @@ DRF template configured for **VS Code Dev Container**
 
 ## Features
 
-* Gunicorn 21.2
 * Django 4.2
 * Django Rest Framework 3.14
+* Gunicorn 21.2
 * Postgres 15
 * Whitenoise
+
+## Development Features
+
+* Ruff
+* Pylint
+* Werkzeug
+* django-extensions
+* django-debug-toolbar
 
 ## Setup
 
@@ -32,10 +40,6 @@ DRF template configured for **VS Code Dev Container**
 
         make run
 
-## Other Packages
+## TODO
 
-* django-cors-headers
-* django-debug-toolbar
-* django-environ
-* argon2-cffi
-* psycopg[binary]
+Make this a cookiecutter template
