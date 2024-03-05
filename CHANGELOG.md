@@ -12,9 +12,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * argon2-cffi for password hashing
 * whitenoise for serving static files
 * gunicorn instead of `manage.py runserver`
+* debugpy using `manage.py runserver_plus 5678`
 
 ### Added
 
 * postgres database mounted to a named volume
 * django-debug-toolbar
 * django-cors-headers
+* pylint
+* ruff

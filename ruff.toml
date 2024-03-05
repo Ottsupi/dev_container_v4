@@ -24,7 +24,7 @@ select = [
     'RUF',          # ruff
     'TRY',          # tryceratops
     'ERA',          # eradicate
-    'FLY',
+    'FLY',          # flynt
     'S',            # flake8-bandit
     'BLE',          # flake8-blind-except
     'FBT',          # flake8-boolean-trap
@@ -59,12 +59,12 @@ ignore = [
     'D105',
     'D106',
     'D107',
-    'D212',
-    'D400',
-    'D401',
-    'D415',
-    'E402',         # false positives for local imports
-    'TD003',
+    'D212',         # ignore multiline summary not at first line
+    'D400',         # ignore first line must end in period
+    'D401',         # ignore imperative mood
+    'D415',         # ignore first line must end in punctuation
+    'E402',         # ignore module imports not at top of file
+    'TD003',        # ignore missing todo issue link
 ]
 unfixable = [
     'F401',         # unused imports
@@ -78,8 +78,8 @@ unfixable = [
 quote-style = 'single'
 
 [lint.flake8-quotes]
-docstring-quotes = 'double'
-multiline-quotes = 'double'
+docstring-quotes = 'double'     # ruff enforces double quotes on
+multiline-quotes = 'double'     # docstrings and multiline strings
 inline-quotes = 'single'
 
 # Allow unused variadic arguments like *args and **kwargs.
