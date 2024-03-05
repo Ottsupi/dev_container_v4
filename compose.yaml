@@ -16,7 +16,7 @@ services:
     env_file:
       - ./env/backend.env
     volumes:
-      - .:/core
+      - .:/develop
 
 volumes:
   database_data: {}

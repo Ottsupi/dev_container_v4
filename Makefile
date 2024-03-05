@@ -1,11 +1,13 @@
 # Define variables
-MANAGE = python manage.py
+CD_APP = cd app &&
+MANAGE = $(CD_APP) python manage.py
 
 # Define targets and recipes
 .PHONY: run migrate superuser app shell
 
+
 run:
-	gunicorn -c ../config/gunicorn.local.py app.wsgi:application --reload
+	$(CD_APP) gunicorn -c .gunicorn/gunicorn.local.py app.wsgi:application --reload
 
 migrations:
 	$(MANAGE) makemigrations
