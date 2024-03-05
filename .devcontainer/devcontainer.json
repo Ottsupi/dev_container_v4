@@ -47,7 +47,8 @@
         "ms-python.pylint",
         // visuals
         "davidanson.vscode-markdownlint",
-        "aaron-bond.better-comments"
+        "aaron-bond.better-comments",
+        "xshrim.txt-syntax"
       ]
     }
   }
